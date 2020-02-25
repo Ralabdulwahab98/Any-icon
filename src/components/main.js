@@ -3,6 +3,7 @@ import axios from "axios"
 
 import HistoryContainer from './HistoryContainer';
 import SearchResult from './SearchResult';
+import UsersContainer from'./UsersContainer';
 
 
 
@@ -22,8 +23,8 @@ export default class Main extends React.Component {
         this.state = {
             search: [],
             newItem: '',
-            toggle:'none',
-            filter: 'none',
+            toggleHistory:'none',
+            toggleUser:'none',
             data:[],
 
         };
@@ -67,15 +68,17 @@ export default class Main extends React.Component {
             search: [...this.state.search, this.state.newItem],
             newItem: e.target.value,
         });
+        // e.target.defaultValue=''
+        
         this.getData(e.target.value);
-        // e.target.value = '';
-        // this.inputChange(e.target.value = '');
-
-        this.closeItemClick = this.closeItemClick.bind(this);
+        
 
     }
 
-    inputChange = (e) => { this.setState({  newItem: e.target.value, });   }
+    inputChange = (e) => { 
+        this.setState({  newItem: e.target.value, });
+        // e.target.defaultValue=''   
+    }
 
     closeClick = (e) => {
         console.log('close ( clear all ) click', e.target);
@@ -97,12 +100,21 @@ export default class Main extends React.Component {
 
     historyListClicked = (e) => {
         console.log('history List Div click');
-        // this.setState({ filter:'display' }); 
-         if( this.state.toggle === 'none'){
-            this.setState({ toggle:'display' }); 
+         if( this.state.toggleHistory === 'none'){
+            this.setState({ toggleHistory:'display' }); 
          }
          else{
-             this.setState({ toggle:'none' }); 
+             this.setState({ toggleHistory:'none' }); 
+         }
+    }
+
+    userListClicked = (e) => {
+        console.log('history List Div click');
+         if( this.state.toggleUser === 'none'){
+            this.setState({ toggleUser:'display' }); 
+         }
+         else{
+             this.setState({ toggleUser:'none' }); 
          }
     }
 
@@ -127,6 +139,7 @@ export default class Main extends React.Component {
                 <form className="form">
                     <input type='text'
                         placeholder='Search'
+                        
                         onChange={this.inputChange} />
 
                     <button className="btn btn-info" onClick={this.addItem} > 
@@ -140,7 +153,7 @@ export default class Main extends React.Component {
                     <button className="btn btn-info "
                     onClick={ this.historyListClicked }> History </button>
 
-                    <div className= {`HistoryContainer-${this.state.toggle}`}>
+                    <div className= {`HistoryContainer-${this.state.toggleHistory}`}>
                         <HistoryContainer
                         onCloseItemClick={this.closeItemClick}
                         closeClick={this.closeClick}
@@ -148,14 +161,30 @@ export default class Main extends React.Component {
                 </div>
                
              </div>
-                
-            
+                    
+                    <div className="d-inline-flex flex-column user">
 
-                
+                    <button className="btn btn-info "
+                    onClick={ this.userListClicked }
+                    > 
+                    <span className="glyphicon glyphicon-user"></span>  
+                    </button>
+
+                    <div className= {`userContainer-${this.state.toggleUser}`}>
+                        <UsersContainer 
                         
-                    
-                    
+                        />
+                        {/* <HistoryContainer
+                        onCloseItemClick={this.closeItemClick}
+                        closeClick={this.closeClick}
+                        historyList={this.state.search} /> */}
+                </div>
+               
+             </div>
                 </div> 
+
+
+
                 <div className="mainResult">
                     <h1>  {this.state.data.length} result </h1>
                     <SearchResult  
@@ -164,7 +193,10 @@ export default class Main extends React.Component {
                 </div>
 
 
-           
+
+                
+
+
 
             </div>
 

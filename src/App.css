@@ -1,35 +1,16 @@
-/* .body{
-  background-color:  rgba(142, 178, 182, 0.904);
-} */
+
 .heder{
-  /* background-color: transparent; */
-  /* background: url('./1.png') no-repeat center center fixed;  */
-  
-  
     background-image: url('./1.svg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
-    /* background-repeat: no-repeat;
-    background-position: center;
-    
-    position: absolute;
-    top:0px;
-    left:0px;
-    width: 100%;
-    height: 100%; */
-
-
-  
-  margin-bottom: 15px;
-
-  height: 20vh;
+    margin-bottom: 15px;
+    height: 20vh;
 }
 
 .History{
   position: fixed;
-  right: 5%;
+  right: .5%;
   top: 1%;
 }
 
@@ -56,23 +37,12 @@
   display: inline-block;
 } 
 
-.SearchResult{
-  border-radius: 35px;
-  /* display: flex;
-  justify-content: center; */
-  position: fixed;
-  right: 5%;
-  margin: 10px;
-  width: 170vh;
-  height: 60vh;
-  /* border: 1px solid rgb(19, 18, 18); */
-  /* background-color: rgba(142, 146, 151, 0.747); */
+.history-item{
+  /* position: fixed; */
+  width: 110px;
+  height: 80px;
+  overflow: scroll;
 
-  box-shadow: 10px 10px 5px rgb(134, 126, 126) ;
-
-  /* border: 5px solid rgba(199, 235, 238, 0.904); */
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
- 
 }
 
 
@@ -92,14 +62,18 @@
 
 /* All Search API Result */
 .SearchResult{
+  position: fixed;
+  right: 5%;
+  margin: 10px;
+  width: 170vh;
+  height: 60vh;
+  box-shadow: 10px 10px 5px rgb(134, 126, 126) ;
   background-color: white;
-  margin-top: 15px;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   overflow: scroll;
   grid-column-gap: 15px;
   grid-row-gap: 10px;
-  /* margin: 10px; */
 
 }
 .Empty{
@@ -112,38 +86,28 @@
 
 /* ResultBox */
 .ResultBox{
-   /* display: flex;
-  justify-content: center; */
   margin: 20px;
   margin-top: 20px;
-  /* margin-top: 20px; */
   width: 200px;
   height: 200px;
-  /* border: 2px solid rgba(199, 235, 238, 0.904); */
-  /* background-color: rgba(227, 237, 238, 0.746); */
   text-align: center ;
   border-radius: 10%;
   border: 5px solid rgba(199, 235, 238, 0.904);
-  /* transition: transform .2s; */
   
 }
 .ResultBox:hover {
-  /* transform: scale(1.2);  */
   border: 15px solid rgba(199, 235, 238, 0.904);
 }
 
-.ResultBox > p{
+.ResultBox > label{
   position: relative;
   top: 40px;
 }
 .imgDiv > img{
   position: relative;
   top: 30px;
-  /* left: 35%; */
-  /* background-size: cover ; */
   width: 100px;
   height: 100px;
-  /* box-shadow: 10px 10px 5px grey ; */
   margin: auto ;
   cursor:copy;
   box-shadow: 10px 10px 5px rgb(134, 126, 126) ;
@@ -177,3 +141,32 @@
   position: fixed;
   top: 5%;
 }
+
+
+
+
+
+/*  --  USER  --   */
+
+
+.user{
+  position: fixed;
+  left: .5%;
+  top: 1%;
+}
+
+.userContainer-none{
+  display: none;
+}
+.userContainer-display{ 
+  cursor: pointer;
+  display: inline-block;
+} 
+
+.user-account-none{
+  display: none;
+}
+.user-account-display{ 
+  cursor: pointer;
+  display: inline-block;
+} 

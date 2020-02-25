@@ -20,16 +20,20 @@ class  ResultBox extends React.Component {
                 <img src={`${this.props.img}`} alt="icon of API data " />
             </div>
             </a>
-            
-            <p> {this.props.format} </p>
 
 
             {/* -- TAGS just to complet the Requirements -- */}
-
-            {/* <h6> TAGS: </h6>
-            <textarea >
-                {this.props.tags.join('-')} 
-            </textarea> */}
+            <label>TAG:
+                <input  
+                type='text'
+                placeholder=' your search tag'
+                // value= {this.props.tags.join('-')} 
+                // onChange= {this.props.tags.join('-')} 
+                // readOnly= {this.props.tags.join('-')}
+                // defaultValue={this.props.tags.join('-')}
+                />
+            </label>
+            
                 
 
            
