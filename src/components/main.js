@@ -130,13 +130,14 @@ export default class Main extends React.Component {
                         onChange={this.inputChange} />
 
                     <button className="btn btn-info" onClick={this.addItem} > 
-                    <span className="glyphicon glyphicon-search"></span>  </button>
+                    <span className="glyphicon glyphicon-search"></span>  
+                    </button>
                    
                 </form>
 
                 <div className="d-inline-flex flex-column History">
 
-                    <button className="btn btn-outline-info "
+                    <button className="btn btn-info "
                     onClick={ this.historyListClicked }> History </button>
 
                     <div className= {`HistoryContainer-${this.state.toggle}`}>

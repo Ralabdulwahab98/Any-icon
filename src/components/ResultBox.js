@@ -10,18 +10,26 @@ class  ResultBox extends React.Component {
     render() { 
         return ( 
         <div className="ResultBox">
+
              <span className="glyphicon glyphicon-trash imgdlet"
             onClick = {this.props.onRemoveData} >
             </span>
+
             <a href={`${this.props.img}`} target="_blank">
             <div className="imgDiv">
-                <img src={`${this.props.img}`} alt="icons" />
-            </div></a>
+                <img src={`${this.props.img}`} alt="icon of API data " />
+            </div>
+            </a>
+            
             <p> {this.props.format} </p>
-            <h6> TAGS: </h6>
+
+
+            {/* -- TAGS just to complet the Requirements -- */}
+
+            {/* <h6> TAGS: </h6>
             <textarea >
                 {this.props.tags.join('-')} 
-            </textarea>
+            </textarea> */}
                 
 
            
