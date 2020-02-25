@@ -1,5 +1,5 @@
 import React from 'react';
-
+import UserLoginContainer from './UserLoginContainer'
 
 export default class UsersContainer extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ export default class UsersContainer extends React.Component {
     }
 
 
-    userRegisterClicked = (e) => {
+    userLoginClicked = (e) => {
         console.log('history List Div click');
          if( this.state.toggleLogin === 'none'){
             this.setState({ 
@@ -23,7 +23,7 @@ export default class UsersContainer extends React.Component {
          }
     }
 
-    userLoginClicked = (e) => {
+     userRegisterClicked = (e) => {
         console.log('history List Div click');
          if( this.state.toggleRegister === 'none'){
             this.setState({ 
@@ -40,21 +40,22 @@ export default class UsersContainer extends React.Component {
         <div>
 
             <ul className="d-inline-flex list-group">
-                <span className="close" onClick={this.userRegisterClicked} >
+                <span className="close" onClick={this.userLoginClicked } >
                     Login </span> 
                 <div className= {`user-account-${this.state.toggleLogin}`}>
-                        user account{/* <UsersLoginContainer  /> */}
+                        user account
+                         <UserLoginContainer  /> 
                 </div>
             </ul>  
 
 
 
             <ul className="d-inline-flex list-group">
-                <span className="close" onClick={this.userLoginClicked} >
+                <span className="close" onClick={this.userRegisterClicked} >
                     Register </span> 
 
                 <div className= {`user-account-${this.state.toggleRegister}`}>
-                        new user account{/* <UsersContainer  /> */}
+                        new user account{/* <UserRegisterContainer  /> */}
                 </div>
             </ul>   
 
