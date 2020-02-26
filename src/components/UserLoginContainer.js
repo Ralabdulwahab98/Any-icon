@@ -10,7 +10,7 @@ export default class UserLoginContainer extends React.Component {
             passwordInput: '',
             toggleLog:'disply',
             username:'',
-            tags:[],
+            history:[],
             userPassed:false,
         };
 
@@ -47,7 +47,7 @@ export default class UserLoginContainer extends React.Component {
                     toggleLog:'none',
                     userPassed: true,
                     username : item.usrname,
-                    tags : item.tags
+                    history : item.history
                     })
                     
 
@@ -67,7 +67,10 @@ export default class UserLoginContainer extends React.Component {
             });
     }
 
-    
+     onClickSave = (e) => {
+
+        this.setState({ toggleEdit:'none' }); 
+    }
 
 
 
@@ -75,11 +78,12 @@ export default class UserLoginContainer extends React.Component {
     render() { 
         let userAccout = null;
 
-        if(this.state.username) {
+        if(this.state.userPassed) {
             userAccout = 
             <UserAccount 
+            editUser= {this.props.editUser}
             username = {this.state.username } 
-            tags = {this.state.tags }  />
+            history = {this.state.history }  />
         }
 
         return ( 

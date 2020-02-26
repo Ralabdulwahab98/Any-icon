@@ -6,6 +6,9 @@ import SearchResult from './SearchResult';
 import UsersContainer from'./UsersContainer';
 
 
+// localStorage.clear()
+// localStorage.setItem("users",JSON.stringify([]))
+
 
 // API
 // https://api.iconfinder.com/v3/
@@ -49,6 +52,10 @@ export default class Main extends React.Component {
            console.log( 'Data: ',res.data.icons);
            
            this.setState({  data: res.data.icons });
+
+        //    console.log( 'length: ',res.data.icons.length );
+        //    console.log( 'download_url: ',res.data.icons[0].raster_sizes[6].formats[0].preview_url );
+        //    console.log( 'format: ',res.data.icons[0].raster_sizes[6].formats[0].format );
            
          })
          .catch(err => {
@@ -149,7 +156,7 @@ export default class Main extends React.Component {
 
                 <div className="d-inline-flex flex-column History">
 
-                    <button className="btn btn-info "
+                    <button className="btn btn-info buttonHistory"
                     onClick={ this.historyListClicked }> History </button>
 
                     <div className= {`HistoryContainer-${this.state.toggleHistory}`}>

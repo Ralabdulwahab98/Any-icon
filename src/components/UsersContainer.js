@@ -47,6 +47,26 @@ export default class UsersContainer extends React.Component {
         });
     }
 
+    editUser =( oldName , newName)=>{
+        
+        this.state.dataUsers.map( (item)=> {
+
+            if( item.usrname === oldName && oldName === ''  ){
+                 item.usrname = newName ;
+                const update = JSON.stringify( this.state.dataUsers );
+                localStorage.setItem("users", update );
+                
+                this.setState({
+                    dataUsers: JSON.parse( localStorage.getItem('users') ),
+                }, () => {
+                    localStorage.setItem("users",JSON.stringify( this.state.dataUsers ))   
+            });
+        }
+        })
+}
+
+    
+
     render() { 
         return ( 
         <div>
@@ -59,7 +79,7 @@ export default class UsersContainer extends React.Component {
                 <div className= {`user-account-${this.state.toggleLogin}`}>
                          <UserLoginContainer
                          UsersBD= {this.state.dataUsers} 
-                         addUser= {this.addUser}
+                         editUser= {this.editUser}
                          /> 
                 </div>
             </ul>  

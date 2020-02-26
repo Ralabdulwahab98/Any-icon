@@ -13,10 +13,12 @@ export default class HistoryContainer extends React.Component {
             />
         });
 
+        
+
         return (
             <div className="div-HistoryContainer" >
                 <ul className="d-inline-flex list-group">
-                        <span className="close" onClick={this.props.closeClick} >
+                        <span className="clear-all" onClick={this.props.closeClick} >
                         clear all </span> 
                         <div className="history-item">
                             {allHistoryList}

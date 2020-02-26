@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     background-position: center;
     margin-bottom: 15px;
-    height: 20vh;
+    height: 30vh;
 }
 
 .History{
@@ -13,21 +13,32 @@
   right: .5%;
   top: 1%;
 }
+.History > button{
+width: 150px;
+height: 40px;
+font-size: 20px;
+text-align: center;
+}
+/* .buttonHistory{
 
-.close {
+} */
+
+.clear-all {
   color: #aaaaaa;
   float: right;
-  font-size: 28px;
+  font-size: 30px;
+  text-align: center;
   font-weight: bold;
 }
 
-.close:hover {
+.clear-all:hover {
   cursor: pointer;
 }
 
  .div-historyList{
   cursor: pointer;
 } 
+
 
 .HistoryContainer-none{
   display: none;
@@ -39,8 +50,9 @@
 
 .history-item{
   /* position: fixed; */
-  width: 110px;
-  height: 80px;
+  width: 150px;
+  height: 130px;
+  text-align: center;
   overflow: scroll;
 
 }
@@ -149,7 +161,7 @@
 
 .form{
   position: fixed;
-  top: 5%;
+  top: 10%;
 }
 
 
@@ -160,6 +172,8 @@
 
 
 .user{
+  width: 90px;
+  height: 200px;
   position: fixed;
   left: .5%;
   top: 1%;
@@ -181,6 +195,13 @@
   display: inline-block;
 } 
 
+.UserAccount{
+  font-size: 10px;
+}
+
+.UserAccount > h1{
+  color: rgb(5, 120, 155);
+}
 
 
 .login-none{

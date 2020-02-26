@@ -2,41 +2,61 @@ import React from 'react';
 
 
 export default class UserAccount extends React.Component {
+
     constructor(props) {
         super(props)
 
         this.state = {
+            // oldUsername:'',
             newItem: '',
-            toggleEdit:'',
+            toggleEdit:'none',
 
         };
     }
 
-    inputChange = (e) => { 
+    nameChange = (e) => { 
         this.setState({  newItem: e.target.value, });
         // e.target.value=''   
     }
+    onClick = (e) => {
+        this.setState({ toggleEdit:'display' }); 
+    }
+    onClickSave = (e) => {
+        this.setState({ toggleEdit:'none' }); 
+        
+        this.props.editUser(this.props.username , this.state.newItem)
+    }
+
+
+
 
     render() {
-        console.log('<UserAccount/> nname= ', this.props.username)
-        console.log('<UserAccount/> tags =', this.props.tags)
+        console.log('<UserAccount/> name= ', this.props.username)
+        console.log('<UserAccount/> tags =', this.props.history)
         return (
-            <div>
-                <p> Hi {this.props.username} </p>
-                <div className={`div-Edit-${this.state.toggleEdit}`}>
-                    <p> Edit  <span className="glyphicon glyphicon-edit"></span> </p>
+            <div className='UserAccount'>
+                <h1> Hi {this.props.username} </h1>
+                
+                    <p>Edit  <span className="glyphicon glyphicon-edit"
+                    onClick = {this.onClick} ></span>
+                    </p>
+
+
+                 <div className={`div-Edit-${this.state.toggleEdit}`}>
 
                     <input
                         type='text'
                         placeholder=' new username'
-                        onChange={this.inputChange}
-                    ></input>
+                        onChange={this.nameChange} ></input>
 
-                    <span className="glyphicon glyphicon-check"></span>
 
-                    {/* onClick = {this.props.onRemoveData}  */}
+                        <button className="btn btn-info ">
+                            <span className="glyphicon glyphicon-check"
+                            onClick = {this.onClickSave} ></span>
+                        </button>
 
-                    {/* <p> tags {this.props.tags.join(' - ')} </p> */}
+                        {/*   --  this have to be user history  --   */}
+                    {/* <p> history {this.props.history.join(' - ')} </p> */}
 
                 </div>
 

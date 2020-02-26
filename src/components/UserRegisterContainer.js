@@ -10,6 +10,7 @@ export default class UserRegisterContainer extends React.Component {
             toggleLog:'disply',
             usrnameInput: '',
             passwordInput: '',
+            history:['history search'],
             userPassed:false,
         };
 
@@ -42,7 +43,7 @@ export default class UserRegisterContainer extends React.Component {
         this.props.addUser(
             {'usrname': this.state.usrnameInput ,
              'password': this.state.passwordInput,
-              'tags':[], 
+              'history':this.state.history, 
             });
         }
         this.setState({
@@ -60,7 +61,7 @@ export default class UserRegisterContainer extends React.Component {
             userAccout = 
             <UserAccount 
             username = {this.state.usrnameInput } 
-            // tags = {this.state.tags }  
+            history = {this.state.history }  
             />
         }
         return ( 
