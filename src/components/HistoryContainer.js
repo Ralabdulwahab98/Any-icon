@@ -18,7 +18,6 @@ export default class HistoryContainer extends React.Component {
                 <ul className="d-inline-flex list-group">
                         <span className="close" onClick={this.props.closeClick} >
                         clear all </span> 
-                        {/* {allHistoryList} */}
                         <div className="history-item">
                             {allHistoryList}
                         </div>

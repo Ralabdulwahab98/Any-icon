@@ -63,7 +63,7 @@
 /* All Search API Result */
 .SearchResult{
   position: fixed;
-  right: 5%;
+  right: 4%;
   margin: 10px;
   width: 170vh;
   height: 60vh;
@@ -103,6 +103,9 @@
   position: relative;
   top: 40px;
 }
+.ResultBox > label > input{
+  width: 85px;
+}
 .imgDiv > img{
   position: relative;
   top: 30px;
@@ -125,16 +128,23 @@
 }
 
 
+/* -- header form -- */
 
 .form > input{
-  width: 250px;
-  height: 30px;
+  width: 450px;
+  height: 40px;
+  border: 0vw;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px rgba(134, 126, 126, 0.596) ;
+  text-align: center;
 }
+
 
 
 .form > button{
   width: 60px;
-  height: 30px;
+  height: 40px;
+  border-radius: 60px;
 }
 
 .form{
@@ -170,3 +180,40 @@
   cursor: pointer;
   display: inline-block;
 } 
+
+
+
+.login-none{
+  display: none;
+}
+.login-display{ 
+  cursor: pointer;
+  display: inline-block;
+} 
+
+.users-container-display{ 
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.users-container-none{ 
+  display: none;
+}
+
+.users-container-display:hover {
+  cursor: pointer;
+}
+
+
+
+
+.div-Edit-none{
+  display: none;
+ }
+
+
+
+.div-Edit-display{ 
+  cursor: pointer;
+}

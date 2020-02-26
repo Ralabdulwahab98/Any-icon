@@ -1,5 +1,5 @@
 import React from 'react';
-import DB from './DB';
+import UserAccount from './UserAccount';
 
 export default class UserRegisterContainer extends React.Component {
 
@@ -7,8 +7,10 @@ export default class UserRegisterContainer extends React.Component {
         super(props)
 
         this.state = {
+            toggleLog:'disply',
             usrnameInput: '',
             passwordInput: '',
+            userPassed:false,
         };
 
     }
@@ -27,7 +29,7 @@ export default class UserRegisterContainer extends React.Component {
         e.preventDefault();
        
         
-        const newuser = this.props.UsersBD;
+        // const newuser = this.props.UsersBD;
 
         if( ( this.state.usrnameInput === ''  || this.state.passwordInput === '')  ){
             // Alert
@@ -37,17 +39,33 @@ export default class UserRegisterContainer extends React.Component {
         // Alert
         console.log('Adding new user to database ');
 
-        newuser.push(
+        this.props.addUser(
             {'usrname': this.state.usrnameInput ,
-             'password': this.state.passwordInput });
+             'password': this.state.passwordInput,
+              'tags':[], 
+            });
         }
+        this.setState({
+            toggleLog:'none',
+            userPassed:true,
+        })
+
 
     }
 
     render() { 
+        let userAccout = null;
+
+        if(this.state.userPassed) {
+            userAccout = 
+            <UserAccount 
+            username = {this.state.usrnameInput } 
+            // tags = {this.state.tags }  
+            />
+        }
         return ( 
         <div>
-            <form className="">
+            <form className= {`login-${this.state.toggleLog}`}>
 
                     <input type='text'
                         placeholder='usrname'
@@ -67,6 +85,7 @@ export default class UserRegisterContainer extends React.Component {
                     </button>
                    
                 </form>
+                {userAccout}
             
         </div> );
     }    

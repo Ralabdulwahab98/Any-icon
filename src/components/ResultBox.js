@@ -23,7 +23,8 @@ class  ResultBox extends React.Component {
 
 
             {/* -- TAGS just to complet the Requirements -- */}
-            <label>TAG:
+            
+            {/* <label>TAG:
                 <input  
                 type='text'
                 placeholder=' your search tag'
@@ -32,7 +33,10 @@ class  ResultBox extends React.Component {
                 // readOnly= {this.props.tags.join('-')}
                 // defaultValue={this.props.tags.join('-')}
                 />
-            </label>
+                <span className="glyphicon glyphicon-check"
+                // onClick = {this.props.onRemoveData} 
+                ></span>
+            </label> */}
             
                 
 

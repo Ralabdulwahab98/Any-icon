@@ -15,6 +15,7 @@ import UsersContainer from'./UsersContainer';
 //client_secret=kaZCwCWTX2ajcgAZqsdbBqZXljUvyst4WHCamfM70jF1ZNEXFV4vlM2fXBPSJpU4
 // &premium=0
 // &count=100
+ 
 
 export default class Main extends React.Component {
     constructor(props) {
@@ -29,6 +30,8 @@ export default class Main extends React.Component {
 
         };
     }
+
+   
 
     getData = (data) => { 
         console.log(' get data from api work!! ')
@@ -46,10 +49,6 @@ export default class Main extends React.Component {
            console.log( 'Data: ',res.data.icons);
            
            this.setState({  data: res.data.icons });
-
-        //    console.log( 'length: ',res.data.icons.length );
-        //    console.log( 'download_url: ',res.data.icons[0].raster_sizes[6].formats[0].preview_url );
-        //    console.log( 'format: ',res.data.icons[0].raster_sizes[6].formats[0].format );
            
          })
          .catch(err => {
@@ -77,7 +76,7 @@ export default class Main extends React.Component {
 
     inputChange = (e) => { 
         this.setState({  newItem: e.target.value, });
-        // e.target.defaultValue=''   
+        // e.target.value=''   
     }
 
     closeClick = (e) => {
@@ -158,9 +157,9 @@ export default class Main extends React.Component {
                         onCloseItemClick={this.closeItemClick}
                         closeClick={this.closeClick}
                         historyList={this.state.search} />
-                </div>
+                   </div>
                
-             </div>
+                </div>
                     
                     <div className="d-inline-flex flex-column user">
 
@@ -171,14 +170,8 @@ export default class Main extends React.Component {
                     </button>
 
                     <div className= {`userContainer-${this.state.toggleUser}`}>
-                        <UsersContainer 
-                        
-                        />
-                        {/* <HistoryContainer
-                        onCloseItemClick={this.closeItemClick}
-                        closeClick={this.closeClick}
-                        historyList={this.state.search} /> */}
-                </div>
+                        <UsersContainer />
+                        </div>
                
              </div>
                 </div> 

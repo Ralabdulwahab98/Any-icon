@@ -1,12 +1,15 @@
 import React from 'react';
 import UserLoginContainer from './UserLoginContainer'
+import UserRegisterContainer from './UserRegisterContainer'
 
 export default class UsersContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
+            toggle:'display',
             toggleLogin:'none',
             toggleRegister:'none',
+            dataUsers:JSON.parse( localStorage.getItem('users') ),
          }
     }
 
@@ -16,6 +19,7 @@ export default class UsersContainer extends React.Component {
          if( this.state.toggleLogin === 'none'){
             this.setState({ 
                 toggleLogin:'display', 
+                toggle:'none',
                 toggleRegister:'none' }); 
          }
          else{
@@ -28,11 +32,19 @@ export default class UsersContainer extends React.Component {
          if( this.state.toggleRegister === 'none'){
             this.setState({ 
                 toggleRegister:'display',
-                toggleLogin:'none'  }); 
+                toggleLogin:'none' ,
+                toggle:'none', }); 
          }
          else{
              this.setState({ toggleRegister:'none' }); 
          }
+    }
+    addUser = (user) => {
+        this.setState({
+            dataUsers:[...this.state.dataUsers , user]
+        }, () => {
+            localStorage.setItem("users",JSON.stringify( this.state.dataUsers ))
+        });
     }
 
     render() { 
@@ -40,22 +52,29 @@ export default class UsersContainer extends React.Component {
         <div>
 
             <ul className="d-inline-flex list-group">
-                <span className="close" onClick={this.userLoginClicked } >
+
+                <span className={`users-container-${this.state.toggle}`} onClick={this.userLoginClicked } >
                     Login </span> 
+                    
                 <div className= {`user-account-${this.state.toggleLogin}`}>
-                        user account
-                         <UserLoginContainer  /> 
+                         <UserLoginContainer
+                         UsersBD= {this.state.dataUsers} 
+                         addUser= {this.addUser}
+                         /> 
                 </div>
             </ul>  
 
 
 
             <ul className="d-inline-flex list-group">
-                <span className="close" onClick={this.userRegisterClicked} >
+                <span className={`users-container-${this.state.toggle}`} onClick={this.userRegisterClicked} >
                     Register </span> 
 
                 <div className= {`user-account-${this.state.toggleRegister}`}>
-                        new user account{/* <UserRegisterContainer  /> */}
+                        <UserRegisterContainer 
+                        UsersBD= {this.state.dataUsers}  
+                        addUser= {this.addUser}
+                        />
                 </div>
             </ul>   
 
