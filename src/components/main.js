@@ -72,7 +72,7 @@ export default class Main extends React.Component {
 
         this.setState({
             search: [...this.state.search, this.state.newItem],
-            newItem: e.target.value,
+            newItem: '',
         });
         // e.target.defaultValue=''
         

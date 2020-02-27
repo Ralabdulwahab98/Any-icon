@@ -24,6 +24,7 @@ export default class UserAccount extends React.Component {
     onClickSave = (e) => {
         this.setState({ toggleEdit:'none' }); 
         
+        console.log( 'onClickSave' ,this.props.username , this.state.newItem)
         this.props.editUser(this.props.username , this.state.newItem)
     }
 

@@ -51,7 +51,7 @@ export default class UsersContainer extends React.Component {
         
         this.state.dataUsers.map( (item)=> {
 
-            if( item.usrname === oldName && oldName === ''  ){
+            if( item.usrname === oldName || oldName === ''  ){
                  item.usrname = newName ;
                 const update = JSON.stringify( this.state.dataUsers );
                 localStorage.setItem("users", update );
