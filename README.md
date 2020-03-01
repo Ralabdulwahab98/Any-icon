@@ -43,19 +43,22 @@ Website that available a different topics search(bank, football, activity, and o
 - List of Technologies used :
   - 
   - React App
-  - axios
-  - local storage
-  - bootstrap
+  - Axios
+  - API
+  - Local Storage
+  - Bootstrap
+  - Glyphicon Components
 
 
 #### References
 
-[React documentation](https://reactjs.org/)
-[Local Storage With JavaScript](https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72)
-[bootstrap](https://getbootstrap.com/docs/4.4/components/carousel/)
-[API Documentation](https://www.iconfinder.com/account/applications)
-[Wireframe](https://www.draw.io/)
-[photoshop online](https://www.photopea.com/)
+- [React documentation](https://reactjs.org/)
+- [Local Storage With JavaScript](https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72)
+- [bootstrap](https://getbootstrap.com/docs/4.4/components/carousel/)
+- [API Documentation](https://www.iconfinder.com/account/applications)
+- [Wireframe](https://www.draw.io/)
+- [Bootstrap Glyphicon Components](https://www.w3schools.com/bootstrap/bootstrap_ref_comp_glyphs.asp)
+- [photoshop online](https://www.photopea.com/)
 
 #### futeur work :
  1. History search of user.
