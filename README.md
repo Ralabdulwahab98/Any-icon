@@ -25,7 +25,7 @@ Website that available a different topics search(bank, football, activity, and o
 - Home page 
 ![wireframes](/home.png)
 
-- History  button
+<!-- - History  button
 ![wireframes](/history.png)
 
 - Profile  button
@@ -38,7 +38,7 @@ Website that available a different topics search(bank, football, activity, and o
 ![wireframes](/user-account.png)
 
 - Edit user account  
-![wireframes](/save.png)
+![wireframes](/save.png) -->
 
 - List of Technologies used :
   - 
