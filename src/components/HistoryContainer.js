@@ -10,6 +10,7 @@ export default class HistoryContainer extends React.Component {
                 oneList={task}
                 key={index}
                 onCloseItemClick={() => this.props.onCloseItemClick(task)}
+                onItemClickSreach={() => this.props.itemClickSreach(task)}
             />
         });
 

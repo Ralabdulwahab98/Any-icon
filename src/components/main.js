@@ -40,8 +40,9 @@ export default class Main extends React.Component {
     // function take topic as paramter to search
     // useing the axios to get request from the API 
     // And asve data to array state data 
-    getData = (data) => { 
+    getData = () => { 
         console.log(' get data from api work!! ')
+
         const client_id ='client_id=NvfBiIhJIHYvaAKF125ScaiL5YSZ7B4pE5JYx5slJaZXSYrUYfChDeQIOPBNOPdv';
         const client_secret = 'client_secret=kaZCwCWTX2ajcgAZqsdbBqZXljUvyst4WHCamfM70jF1ZNEXFV4vlM2fXBPSJpU4';
        
@@ -74,7 +75,7 @@ export default class Main extends React.Component {
         });
         // call the getData() 
         // And give it the get request data to search 
-        this.getData(e.target.value);
+        this.getData();
     }
 
 
@@ -104,9 +105,20 @@ export default class Main extends React.Component {
     }
 
 
+// Event to search one index from search array 
+itemClickSreach = (item) => {
+    
+    console.log(item,'to search from history list ')
+    
+    this.setState({ newItem: item, });
+    this.getData();
+
+}
+
 
 // To display or not the Div of  ( history )  
     historyListClicked = (e) => {
+        // e.preventDefault();
         console.log('history List Div click');
          if( this.state.toggleHistory === 'none'){
             this.setState({ toggleHistory:'display' }); 
@@ -118,7 +130,8 @@ export default class Main extends React.Component {
 
 // To display or not the Div of  ( history )      
     userListClicked = (e) => {
-        console.log('history List Div click');
+        e.preventDefault();
+        console.log('user List Div click');
          if( this.state.toggleUser === 'none'){
             this.setState({ toggleUser:'display' }); 
          }
@@ -166,8 +179,10 @@ export default class Main extends React.Component {
                     <div className= {`HistoryContainer-${this.state.toggleHistory}`}>
                         <HistoryContainer
                         onCloseItemClick={this.closeItemClick}
+                        itemClickSreach= {this.itemClickSreach}
                         closeClick={this.closeClick}
-                        historyList={this.state.search} />
+                        historyList={this.state.search} 
+                        />
                    </div>
                 </div>
                     

@@ -5,7 +5,8 @@ import React from 'react';
    
   return (
     <div >
-        <li className="list-group-item"> 
+        <li className="list-group-item"
+        onClick = {props.onItemClickSreach} > 
         <span className="glyphicon glyphicon-trash"
         onClick = {props.onCloseItemClick} >
          </span>
