@@ -7,7 +7,6 @@ export default class UserAccount extends React.Component {
         super(props)
 
         this.state = {
-            // oldUsername:'',
             newItem: '',
             toggleEdit:'none',
 
@@ -23,7 +22,6 @@ export default class UserAccount extends React.Component {
     }
     onClickSave = (e) => {
         this.setState({ toggleEdit:'none' }); 
-        
         console.log( 'onClickSave' ,this.props.username , this.state.newItem)
         this.props.editUser(this.props.username , this.state.newItem)
     }
@@ -56,8 +54,6 @@ export default class UserAccount extends React.Component {
                             onClick = {this.onClickSave} ></span>
                         </button>
 
-                        {/*   --  this have to be user history  --   */}
-                    {/* <p> history {this.props.history.join(' - ')} </p> */}
 
                 </div>
 

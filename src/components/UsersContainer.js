@@ -9,13 +9,14 @@ export default class UsersContainer extends React.Component {
             toggle:'display',
             toggleLogin:'none',
             toggleRegister:'none',
+            // useing users obj key from localStorage object to save data, edit or remove
             dataUsers:JSON.parse( localStorage.getItem('users') ),
          }
     }
 
-
+// To display or not the Div of ( Login )  
     userLoginClicked = (e) => {
-        console.log('history List Div click');
+        console.log('user Login Clicked Div click');
          if( this.state.toggleLogin === 'none'){
             this.setState({ 
                 toggleLogin:'display', 
@@ -27,8 +28,9 @@ export default class UsersContainer extends React.Component {
          }
     }
 
+// To display or not the Div of ( Register )  
      userRegisterClicked = (e) => {
-        console.log('history List Div click');
+        console.log('user Register Clicked List Div click');
          if( this.state.toggleRegister === 'none'){
             this.setState({ 
                 toggleRegister:'display',
@@ -39,7 +41,10 @@ export default class UsersContainer extends React.Component {
              this.setState({ toggleRegister:'none' }); 
          }
     }
+
+// adding user to localStorage
     addUser = (user) => {
+        // update the state of new user
         this.setState({
             dataUsers:[...this.state.dataUsers , user]
         }, () => {
@@ -47,15 +52,18 @@ export default class UsersContainer extends React.Component {
         });
     }
 
+// edit user name on user obj of localStorage    
     editUser =( oldName , newName)=>{
-        
         this.state.dataUsers.map( (item)=> {
 
+
+            // check if the user nsme is the same what we want to chang and it is not empty !
             if( item.usrname === oldName || oldName === ''  ){
                  item.usrname = newName ;
                 const update = JSON.stringify( this.state.dataUsers );
                 localStorage.setItem("users", update );
                 
+                // update the state of new username
                 this.setState({
                     dataUsers: JSON.parse( localStorage.getItem('users') ),
                 }, () => {

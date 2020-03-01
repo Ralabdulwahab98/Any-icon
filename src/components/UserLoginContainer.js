@@ -83,7 +83,8 @@ export default class UserLoginContainer extends React.Component {
             <UserAccount 
             editUser= {this.props.editUser}
             username = {this.state.username } 
-            history = {this.state.history }  />
+            // history = {this.state.history }  
+            />
         }
 
         return ( 

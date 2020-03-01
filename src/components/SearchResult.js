@@ -15,13 +15,13 @@ class SearchResult extends React.Component {
                  });
 
         let checkArrayEmpty ;
+        
+        // check if no result of searching or noting to search 
         if( this.props.DATA.length <= 0 ){
-            checkArrayEmpty = <div className="SearchResult Empty">
-        </div>
+            checkArrayEmpty = <div className="SearchResult Empty"> </div>
         }else{
             checkArrayEmpty = <div className="SearchResult">
-            {allData}
-        </div>
+            {allData} </div>
         }
         return(checkArrayEmpty);
 

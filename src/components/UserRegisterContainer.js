@@ -61,7 +61,7 @@ export default class UserRegisterContainer extends React.Component {
             userAccout = 
             <UserAccount 
             username = {this.state.usrnameInput } 
-            history = {this.state.history }  
+            // history = {this.state.history }  
             />
         }
         return ( 

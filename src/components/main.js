@@ -1,41 +1,45 @@
 import React from 'react';
 import axios from "axios"
-
 import HistoryContainer from './HistoryContainer';
 import SearchResult from './SearchResult';
 import UsersContainer from'./UsersContainer';
 
 
-// localStorage.clear()
-// localStorage.setItem("users",JSON.stringify([]))
+// API documentation
 
-
-// API
-// https://api.iconfinder.com/v3/
-// iconsets?
-// client_id=NvfBiIhJIHYvaAKF125ScaiL5YSZ7B4pE5JYx5slJaZXSYrUYfChDeQIOPBNOPdv
-// &
-//client_secret=kaZCwCWTX2ajcgAZqsdbBqZXljUvyst4WHCamfM70jF1ZNEXFV4vlM2fXBPSJpU4
-// &premium=0
-// &count=100
+// https://api.iconfinder.com/v3/icons/search? 
+// search? ==> Endpoint
+// NvfBiIhJIHYvaAKF125ScaiL5YSZ7B4pE5JYx5slJaZXSYrUYfChDeQIOPBNOPdv ==> client_id 
+// kaZCwCWTX2ajcgAZqsdbBqZXljUvyst4WHCamfM70jF1ZNEXFV4vlM2fXBPSJpU4 ==> client_secret 
+// premium=0  ==>  to get the free icons
+// count=100  ==>  to specify number of result 
  
 
 export default class Main extends React.Component {
+ 
+
     constructor(props) {
         super(props)
 
         this.state = {
-            search: [],
+            // save all input of search 
+            search: [], 
+            // get the new input search and save it 
             newItem: '',
+            // This tow to display the div or not display
             toggleHistory:'none',
             toggleUser:'none',
+            // To get data from API and save it 
             data:[],
-
         };
     }
 
    
 
+
+    // function take topic as paramter to search
+    // useing the axios to get request from the API 
+    // And asve data to array state data 
     getData = (data) => { 
         console.log(' get data from api work!! ')
         const client_id ='client_id=NvfBiIhJIHYvaAKF125ScaiL5YSZ7B4pE5JYx5slJaZXSYrUYfChDeQIOPBNOPdv';
@@ -50,23 +54,17 @@ export default class Main extends React.Component {
          })
          .then(res => { 
            console.log( 'Data: ',res.data.icons);
-           
            this.setState({  data: res.data.icons });
-
-        //    console.log( 'length: ',res.data.icons.length );
-        //    console.log( 'download_url: ',res.data.icons[0].raster_sizes[6].formats[0].preview_url );
-        //    console.log( 'format: ',res.data.icons[0].raster_sizes[6].formats[0].format );
-           
+     
          })
          .catch(err => {
            console.log('ERR',err);
          });  
-        
      }
 
-
+// function to adding search item to Array Search
+// And save it to to array state search with all olde index  
     addItem = (e) => {
-        
         e.preventDefault();
         console.log('Adding search item to Array Search');
 
@@ -74,25 +72,27 @@ export default class Main extends React.Component {
             search: [...this.state.search, this.state.newItem],
             newItem: '',
         });
-        // e.target.defaultValue=''
-        
+        // call the getData() 
+        // And give it the get request data to search 
         this.getData(e.target.value);
-        
-
     }
 
+
+// Saveing the input data 
     inputChange = (e) => { 
         this.setState({  newItem: e.target.value, });
         // e.target.value=''   
     }
 
+
+// Event to clear all index in search array 
     closeClick = (e) => {
-        console.log('close ( clear all ) click', e.target);
+        console.log(' ( clear all ) click', e.target);
         this.setState({ search: [] });
     }
 
 
-
+// Event to clear only one index in search array 
     closeItemClick = (item) => {
         const search = [...this.state.search];
         const searchIndex = search.indexOf(item);
@@ -104,6 +104,8 @@ export default class Main extends React.Component {
     }
 
 
+
+// To display or not the Div of  ( history )  
     historyListClicked = (e) => {
         console.log('history List Div click');
          if( this.state.toggleHistory === 'none'){
@@ -114,6 +116,7 @@ export default class Main extends React.Component {
          }
     }
 
+// To display or not the Div of  ( history )      
     userListClicked = (e) => {
         console.log('history List Div click');
          if( this.state.toggleUser === 'none'){
@@ -124,6 +127,8 @@ export default class Main extends React.Component {
          }
     }
 
+
+// Event to remov only one box in the result of search continer     
     removeData = (oneData) =>{
         const data = [...this.state.data];
         const dataIndex = data.indexOf(oneData);
@@ -132,58 +137,54 @@ export default class Main extends React.Component {
 
         data.splice(dataIndex, 1);
         this.setState({ data });
-
     }
+
+
 
     render() {console.log(this.state.data);
         return (
             
             <div className="d-block">
-                
-                <div className="d-flex justify-content-center heder" >
+
+                {/* The heder part  */}
+
+             <div className="d-flex justify-content-center heder" >
 
                 <form className="form">
                     <input type='text'
                         placeholder='Search'
-                        
                         onChange={this.inputChange} />
-
                     <button className="btn btn-info" onClick={this.addItem} > 
-                    <span className="glyphicon glyphicon-search"></span>  
+                     <span className="glyphicon glyphicon-search"></span>  
                     </button>
-                   
                 </form>
 
-                <div className="d-inline-flex flex-column History">
 
+                <div className="d-inline-flex flex-column History">
                     <button className="btn btn-info buttonHistory"
                     onClick={ this.historyListClicked }> History </button>
-
                     <div className= {`HistoryContainer-${this.state.toggleHistory}`}>
                         <HistoryContainer
                         onCloseItemClick={this.closeItemClick}
                         closeClick={this.closeClick}
                         historyList={this.state.search} />
                    </div>
-               
                 </div>
                     
-                    <div className="d-inline-flex flex-column user">
+                <div className="d-inline-flex flex-column user">
 
                     <button className="btn btn-info "
-                    onClick={ this.userListClicked }
-                    > 
+                    onClick={ this.userListClicked }> 
                     <span className="glyphicon glyphicon-user"></span>  
                     </button>
-
                     <div className= {`userContainer-${this.state.toggleUser}`}>
                         <UsersContainer />
-                        </div>
+                    </div>
                
-             </div>
-                </div> 
+                </div>
+             </div> 
 
-
+                 {/* The main part  */}
 
                 <div className="mainResult">
                     <h1>  {this.state.data.length} result </h1>

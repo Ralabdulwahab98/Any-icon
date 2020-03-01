@@ -1,7 +1,6 @@
-// HistoryList
 import React from 'react';
 
-    export default function HistoryList (props) {
+  export default function HistoryList (props) {
 
    
   return (
