@@ -14,6 +14,7 @@ Website that available a different topics search(bank, football, activity, and o
 ## User Stories
 
 * A user can search of any topic. 
+* A user can search of topic from history . 
 * A user can register to a new account.
 * A user can login to a account.
 * When user get result of search can remove specific result.
@@ -67,7 +68,3 @@ Website that available a different topics search(bank, football, activity, and o
  3. user able to download an icons.
 
 
-<!-- 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify -->
